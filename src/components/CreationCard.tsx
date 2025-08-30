@@ -12,11 +12,11 @@ export const CreationCard = ({ type }: CreationCardProps) => {
   
   return (
     <div 
-      className={`rounded-lg p-6 flex flex-col ${
-        isImage ? "bg-blue-card" : "bg-yellow-card"
+      className={`glass-card rounded-[25px] p-6 flex flex-col hover:bg-white/10 transition-all duration-300 cursor-pointer ${
+        isImage ? "border border-blue-400/20" : "border border-yellow-400/20"
       }`}
     >
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      <h2 className="text-2xl font-bold text-white mb-4">
         {isImage ? "Image" : "Storytelling"}
       </h2>
       
@@ -48,22 +48,22 @@ export const CreationCard = ({ type }: CreationCardProps) => {
       <div className="grid grid-cols-2 gap-2 mt-4">
         {isImage ? (
           <>
-            <button className="bg-black text-white py-3 rounded-md flex items-center justify-center gap-1.5 hover:bg-opacity-90 transition">
+            <button className="bg-black/50 text-white py-3 rounded-[15px] flex items-center justify-center gap-1.5 hover:bg-black/70 transition-all duration-200 backdrop-blur-sm border border-white/10">
               <Plus size={18} />
               <span>Create Image</span>
             </button>
-            <button className="bg-black text-white py-3 rounded-md flex items-center justify-center gap-1.5 hover:bg-opacity-90 transition">
+            <button className="bg-black/50 text-white py-3 rounded-[15px] flex items-center justify-center gap-1.5 hover:bg-black/70 transition-all duration-200 backdrop-blur-sm border border-white/10">
               <Edit size={18} />
               <span>Edit Image</span>
             </button>
           </>
         ) : (
           <>
-            <button className="bg-black text-white py-3 rounded-md flex items-center justify-center gap-1.5 hover:bg-opacity-90 transition">
+            <button className="bg-black/50 text-white py-3 rounded-[15px] flex items-center justify-center gap-1.5 hover:bg-black/70 transition-all duration-200 backdrop-blur-sm border border-white/10">
               <UserPlus size={18} />
               <span>Consistent Character</span>
             </button>
-            <button className="bg-black text-white py-3 rounded-md flex items-center justify-center gap-1.5 hover:bg-opacity-90 transition">
+            <button className="bg-black/50 text-white py-3 rounded-[15px] flex items-center justify-center gap-1.5 hover:bg-black/70 transition-all duration-200 backdrop-blur-sm border border-white/10">
               <Video size={18} />
               <span>Image To Video</span>
             </button>

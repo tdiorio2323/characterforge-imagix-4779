@@ -50,14 +50,14 @@ const Index = () => {
                   Quick starts
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#3A3600] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#3A3600]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-yellow-400/20">
                       <Video size={24} className="text-[#FFD426]" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
                         <h3 className="font-medium text-white">Image to Video</h3>
-                        <span className="bg-green-600 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">
+                        <span className="bg-green-600/80 text-white text-[10px] px-1.5 py-0.5 rounded-[8px] font-bold backdrop-blur-sm">
                           New
                         </span>
                       </div>
@@ -65,8 +65,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#00361F] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#00361F]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-green-400/20">
                       <Paintbrush size={24} className="text-[#00A67E]" />
                     </div>
                     <div>
@@ -75,8 +75,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#360036] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#360036]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-pink-400/20">
                       <Grid size={24} className="text-[#FF3EA5]" />
                     </div>
                     <div>
@@ -85,8 +85,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#36003B] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#36003B]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-pink-400/20">
                       <FileText size={24} className="text-[#FF3EA5]" />
                     </div>
                     <div>
@@ -95,8 +95,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#3A3600] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#3A3600]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-yellow-400/20">
                       <Search size={24} className="text-[#FFD426]" />
                     </div>
                     <div>
@@ -105,8 +105,8 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#1A1A1A] rounded-lg p-4 flex items-start">
-                    <div className="p-3 rounded-lg bg-[#003619] mr-4 flex items-center justify-center">
+                  <div className="glass-card rounded-[25px] p-4 flex items-start hover:bg-white/10 transition-all duration-200">
+                    <div className="p-3 rounded-[15px] bg-[#003619]/50 mr-4 flex items-center justify-center backdrop-blur-sm border border-green-400/20">
                       <FileText size={24} className="text-[#00A67E]" />
                     </div>
                     <div>
@@ -169,7 +169,7 @@ const Index = () => {
                 </div>
                 
                 <div className="flex justify-center mt-8">
-                  <button className="border border-gray-700 hover:bg-gray-800 transition-colors text-white flex items-center gap-2 rounded-md px-6 py-2 text-sm font-medium">
+                  <button className="border border-white/20 hover:bg-white/10 transition-all duration-200 text-white flex items-center gap-2 rounded-[15px] px-6 py-2 text-sm font-medium backdrop-blur-sm">
                     View All Flow Apps
                     <ArrowRight size={16} />
                   </button>
@@ -217,7 +217,7 @@ const Index = () => {
                 </div>
                 
                 <div className="flex justify-center mt-8">
-                  <button className="border border-gray-700 hover:bg-gray-800 transition-colors text-white flex items-center gap-2 rounded-md px-6 py-2 text-sm font-medium">
+                  <button className="border border-white/20 hover:bg-white/10 transition-all duration-200 text-white flex items-center gap-2 rounded-[15px] px-6 py-2 text-sm font-medium backdrop-blur-sm">
                     View All Models
                     <ArrowRight size={16} />
                   </button>

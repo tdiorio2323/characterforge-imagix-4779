@@ -21,13 +21,13 @@ type DropdownItemProps = {
 
 const SidebarItem = ({ icon, label, isActive = false, isNew = false, hasDropdown = false, onClick }: SidebarItemProps) => (
   <button 
-    className={`w-full flex items-center gap-3 p-3 rounded-md transition-colors ${isActive ? 'bg-accent' : 'hover:bg-accent'}`}
+    className={`w-full flex items-center gap-3 p-3 rounded-[15px] transition-all duration-200 backdrop-blur-sm ${isActive ? 'bg-white/15 border border-white/20' : 'hover:bg-white/10'}`}
     onClick={onClick}
   >
     <div className={isActive ? "text-white" : "text-gray-300"}>{icon}</div>
     <span className="text-white text-sm font-medium flex-1 text-left">{label}</span>
     {isNew && (
-      <span className="bg-green-500 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">
+      <span className="bg-green-500/80 text-white text-[10px] px-1.5 py-0.5 rounded-[8px] font-bold backdrop-blur-sm">
         NEW
       </span>
     )}
@@ -39,12 +39,12 @@ const SidebarItem = ({ icon, label, isActive = false, isNew = false, hasDropdown
 
 const DropdownItem = ({ icon, label, isExternal = false, isActive = false, onClick }: DropdownItemProps) => (
   <button 
-    className={`w-full flex items-center gap-3 p-3 pl-12 hover:bg-accent rounded-md transition-colors ${isActive ? 'bg-accent' : ''}`}
+    className={`w-full flex items-center gap-3 p-3 pl-12 hover:bg-white/10 rounded-[15px] transition-all duration-200 backdrop-blur-sm ${isActive ? 'bg-white/15 border border-white/20' : ''}`}
     onClick={onClick}
   >
     <div className={isActive ? "text-white" : "text-gray-300"}>{icon}</div>
     <span className={`text-sm ${isActive ? "text-white" : "text-gray-300"}`}>{label}</span>
-    {isExternal && <span className="ml-2 px-1 bg-muted rounded-sm text-[10px] text-gray-300">↗</span>}
+    {isExternal && <span className="ml-2 px-1 bg-white/10 rounded-[6px] text-[10px] text-gray-300 backdrop-blur-sm">↗</span>}
   </button>
 );
 
@@ -72,15 +72,15 @@ export const Sidebar = () => {
   }
 
   return (
-    <div className="w-[232px] bg-sidebar min-h-screen flex flex-col border-r border-gray-800">
-      <div className="flex items-center justify-between p-4 border-b border-gray-800">
+    <div className="w-[232px] glass-sidebar min-h-screen flex flex-col">
+      <div className="flex items-center justify-between p-4 border-b border-white/15">
         <div className="flex items-center gap-2">
           <img src="/lovable-uploads/407e5ec8-9b67-42ee-acf0-b238e194aa64.png" alt="Logo" className="w-8 h-8" />
-          <span className="text-white font-semibold">OpenArt</span>
+          <span className="text-white font-semibold">TD Studios</span>
         </div>
         <button
           onClick={() => setIsCollapsed(true)}
-          className="text-gray-400 hover:text-white transition-colors p-1 rounded-md hover:bg-gray-800"
+          className="text-gray-400 hover:text-white transition-colors p-1 rounded-[8px] hover:bg-white/10 backdrop-blur-sm"
         >
           <ChevronRight size={16} />
         </button>
