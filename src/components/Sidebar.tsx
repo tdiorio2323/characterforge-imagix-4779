@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { ChevronRight, HomeIcon, Users, Video, Image, Edit, Palette, Grid, LayoutGrid, Rss, Code, ChevronDown, BookOpen, HelpCircle, Sparkles, Palette as ThemeIcon, Newspaper, Clock, Bookmark, Heart, Album, Boxes } from "lucide-react";
 
 type SidebarItemProps = {
@@ -49,11 +50,31 @@ const DropdownItem = ({ icon, label, isExternal = false, isActive = false, onCli
 );
 
 export const Sidebar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [myStuffOpen, setMyStuffOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState("Home");
   const [activeDropdownItem, setActiveDropdownItem] = useState("");
+  
+  const getActiveItem = () => {
+    const path = location.pathname;
+    if (path === "/") return "Home";
+    if (path === "/characters") return "Characters";
+    if (path === "/videos") return "Videos";
+    if (path === "/create-image") return "Create Image";
+    if (path === "/edit-image") return "Edit Image";
+    if (path === "/style-palettes") return "Style Palettes";
+    if (path === "/models") return "Models";
+    if (path === "/apps") return "Apps";
+    if (path === "/community-feed") return "Community Feed";
+    if (path === "/comfyui-workflows") return "ComfyUI Workflows";
+    return "Home";
+  };
+
+  const handleNavigation = (item: string, path: string) => {
+    navigate(path);
+  };
 
   if (isCollapsed) {
     return (
@@ -90,63 +111,63 @@ export const Sidebar = () => {
         <SidebarItem 
           icon={<HomeIcon size={20} />} 
           label="Home" 
-          isActive={activeItem === "Home"}
-          onClick={() => setActiveItem("Home")}
+          isActive={getActiveItem() === "Home"}
+          onClick={() => handleNavigation("Home", "/")}
         />
         <SidebarItem 
           icon={<Users size={20} />} 
           label="Characters" 
           isNew 
-          isActive={activeItem === "Characters"}
-          onClick={() => setActiveItem("Characters")}
+          isActive={getActiveItem() === "Characters"}
+          onClick={() => handleNavigation("Characters", "/characters")}
         />
         <SidebarItem 
           icon={<Video size={20} />} 
           label="Videos" 
-          isActive={activeItem === "Videos"}
-          onClick={() => setActiveItem("Videos")}
+          isActive={getActiveItem() === "Videos"}
+          onClick={() => handleNavigation("Videos", "/videos")}
         />
         <SidebarItem 
           icon={<Image size={20} />} 
           label="Create Image" 
-          isActive={activeItem === "Create Image"}
-          onClick={() => setActiveItem("Create Image")}
+          isActive={getActiveItem() === "Create Image"}
+          onClick={() => handleNavigation("Create Image", "/create-image")}
         />
         <SidebarItem 
           icon={<Edit size={20} />} 
           label="Edit Image" 
-          isActive={activeItem === "Edit Image"}
-          onClick={() => setActiveItem("Edit Image")}
+          isActive={getActiveItem() === "Edit Image"}
+          onClick={() => handleNavigation("Edit Image", "/edit-image")}
         />
         <SidebarItem 
           icon={<Palette size={20} />} 
           label="Style Palettes" 
-          isActive={activeItem === "Style Palettes"}
-          onClick={() => setActiveItem("Style Palettes")}
+          isActive={getActiveItem() === "Style Palettes"}
+          onClick={() => handleNavigation("Style Palettes", "/style-palettes")}
         />
         <SidebarItem 
           icon={<Grid size={20} />} 
           label="Models" 
-          isActive={activeItem === "Models"}
-          onClick={() => setActiveItem("Models")}
+          isActive={getActiveItem() === "Models"}
+          onClick={() => handleNavigation("Models", "/models")}
         />
         <SidebarItem 
           icon={<LayoutGrid size={20} />} 
           label="Apps" 
-          isActive={activeItem === "Apps"}
-          onClick={() => setActiveItem("Apps")}
+          isActive={getActiveItem() === "Apps"}
+          onClick={() => handleNavigation("Apps", "/apps")}
         />
         <SidebarItem 
           icon={<Rss size={20} />} 
           label="Community Feed" 
-          isActive={activeItem === "Community Feed"}
-          onClick={() => setActiveItem("Community Feed")}
+          isActive={getActiveItem() === "Community Feed"}
+          onClick={() => handleNavigation("Community Feed", "/community-feed")}
         />
         <SidebarItem 
           icon={<Code size={20} />} 
           label="ComfyUI Workflows" 
-          isActive={activeItem === "ComfyUI Workflows"}
-          onClick={() => setActiveItem("ComfyUI Workflows")}
+          isActive={getActiveItem() === "ComfyUI Workflows"}
+          onClick={() => handleNavigation("ComfyUI Workflows", "/comfyui-workflows")}
         />
       </div>
 
@@ -155,12 +176,9 @@ export const Sidebar = () => {
           <SidebarItem 
             icon={myStuffOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             label="My stuff" 
-            isActive={activeItem === "My stuff"}
+            isActive={false}
             hasDropdown
-            onClick={() => {
-              setMyStuffOpen(!myStuffOpen);
-              setActiveItem("My stuff");
-            }}
+            onClick={() => setMyStuffOpen(!myStuffOpen)}
           />
 
           {myStuffOpen && (
@@ -204,11 +222,8 @@ export const Sidebar = () => {
             icon={resourcesOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
             label="Resources" 
             hasDropdown
-            isActive={activeItem === "Resources"}
-            onClick={() => {
-              setResourcesOpen(!resourcesOpen);
-              setActiveItem("Resources");
-            }}
+            isActive={false}
+            onClick={() => setResourcesOpen(!resourcesOpen)}
           />
           
           {resourcesOpen && (
